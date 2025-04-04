@@ -3,7 +3,9 @@ import {Image, View, Text, StatusBar} from 'react-native';
 import styles from './styles';
 import Button from '../../../components/Button';
 
-const Onboarding = ({navigation}) => {
+import { NavigationProp } from '@react-navigation/native';
+
+const Onboarding = ({navigation}: {navigation: NavigationProp<any>}) => {
   return (
     <View style={styles.container}>
       <View style={{flex: 1}}>
@@ -25,11 +27,11 @@ const Onboarding = ({navigation}) => {
           barStyle="dark-content"
         />
 
-        <Button title="login" onPress={navigation.navigate('Signin')} />
+        <Button title="login" onPress={() => navigation.navigate('Signin')} />
         <Button
           type={'blue'}
           title="Get Started"
-          onPress={navigation.navigate('Signup')}
+          onPress={() => navigation.navigate('Signup')}
         />
       </View>
     </View>
