@@ -27,7 +27,7 @@ const Onboarding = () => {
         />
 
         <Button title="login" />
-        <Button title="Get Started" />
+        <Button type={'blue'} title="Get Started" />
       </View>
     </View>
   );

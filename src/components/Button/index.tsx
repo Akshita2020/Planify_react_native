@@ -5,11 +5,14 @@ import styles from './styles';
 interface ButtonProps {
   title: string;
   onPress: () => void;
+  type?: string;
 }
 
-const Button = ({title, onPress}: ButtonProps) => {
+const Button = ({title, onPress, type}: ButtonProps) => {
   return (
-    <TouchableOpacity onPress={onPress} style={styles.buttonContainer}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={[styles.buttonContainer, type === 'blue' ? styles.blueBg : {}]}>
       <Text style={styles.ButtonText}>{title}</Text>
     </TouchableOpacity>
   );

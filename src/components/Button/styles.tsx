@@ -4,7 +4,7 @@ import colors from '../../constants/colors';
 const styles = StyleSheet.create({
   buttonContainer: {
     backgroundColor: colors.purple,
-flexDirection: 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 10,
@@ -16,7 +16,10 @@ flexDirection: 'row',
     fontSize: 16,
     alignItems: 'center',
     justifyContent: 'center',
-    fontWeight: '500',
+    fontWeight: 'bold',
+  },
+  blueBg: {
+    backgroundColor: colors.blue,
   },
 });
 
