@@ -1,10 +1,9 @@
 import React from 'react';
-import {Image, View, Text} from 'react-native';
+import {Image, View, Text, StatusBar} from 'react-native';
 import styles from './styles';
 import Button from '../../../components/Button';
-import {StatusBar} from 'react-native';
 
-const Onboarding = () => {
+const Onboarding = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={{flex: 1}}>
@@ -26,8 +25,12 @@ const Onboarding = () => {
           barStyle="dark-content"
         />
 
-        <Button title="login" />
-        <Button type={'blue'} title="Get Started" />
+        <Button title="login" onPress={navigation.navigate('Signin')} />
+        <Button
+          type={'blue'}
+          title="Get Started"
+          onPress={navigation.navigate('Signup')}
+        />
       </View>
     </View>
   );

@@ -4,7 +4,7 @@ import styles from './styles';
 
 interface ButtonProps {
   title: string;
-  onPress: () => void;
+  onPress?: () => void;
   type?: string;
 }
 
