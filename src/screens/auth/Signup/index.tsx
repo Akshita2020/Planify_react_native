@@ -1,17 +1,24 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Linking} from 'react-native';
 import styles from './styles';
 import {NavigationProp} from '@react-navigation/native';
 import Title from '../../../components/Title';
 import Button from '../../../components/Button';
 import Input from '../../../components/Input';
 import Checkbox from '../../../components/Checkbox';
+import {
+  PRIVACY_POLICY_LINK,
+  TERMS_CONDITIONS_LINK,
+} from '../../../constants/links';
 
 const Signup = ({navigation}: {navigation: NavigationProp<any>}) => {
   const [agreed, setAgreed] = React.useState(false);
 
   const onCheckboxPress = () => {
     setAgreed(value => !value);
+  };
+  const onLinkPress = (url: string) => {
+    Linking.openURL(url);
   };
   return (
     <View style={styles.container}>
@@ -21,8 +28,22 @@ const Signup = ({navigation}: {navigation: NavigationProp<any>}) => {
       <Input placeholder="Email" />
       <Input placeholder="Password" />
       <Input placeholder="Confirm Password" />
-      <View>
+      <View style={styles.row}>
         <Checkbox Checked={agreed} onPress={onCheckboxPress} />
+        <Text style={styles.agreeText}>
+          I agree to {''}
+          <Text
+            style={styles.link}
+            onPress={() => onLinkPress(TERMS_CONDITIONS_LINK)}>
+            terms and conditions
+          </Text>
+          {''} and {''}
+          <Text
+            style={styles.link}
+            onPress={() => onLinkPress(PRIVACY_POLICY_LINK)}>
+            privacy policy
+          </Text>
+        </Text>
       </View>
       <Button type="blue" title="Create new account" />
       <Text style={[styles.footerText]}>
