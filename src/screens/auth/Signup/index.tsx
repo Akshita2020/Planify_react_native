@@ -38,6 +38,10 @@ const Signup = ({navigation}: {navigation: NavigationProp<any>}) => {
   };
 
   const onSubmit = () => {
+    if (!values.firstName || !values.lastName) {
+      Alert.alert('Please enter your first name and last name');
+      return;
+    }
     if (values.Password !== values.confirmPassword) {
       Alert.alert('Passwords do not match!');
       return;
@@ -48,9 +52,13 @@ const Signup = ({navigation}: {navigation: NavigationProp<any>}) => {
     }
     auth()
       .createUserWithEmailAndPassword(values.Email, values.Password)
-      .then(() => {
-        console.log('User account created & signed in!');
+      .then(async userCredential => {
+        await userCredential.user.updateProfile({
+          displayName: `${values.firstName} ${values.lastName}`,
+        });
+        console.log('Profile updated!');
       })
+
       .catch(error => {
         if (error.code === 'auth/email-already-in-use') {
           Alert.alert('That email address is already in use!');
