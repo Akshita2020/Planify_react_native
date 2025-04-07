@@ -7,6 +7,9 @@ interface InputProps {
   placeholder: string;
   secureTextEntry?: boolean;
   keyboardType?: KeyboardTypeOptions;
+  value?: string;
+  onChangeText?: (text: string) => void;
+  key?: string;
 }
 
 const Input = ({...props}: InputProps) => {
