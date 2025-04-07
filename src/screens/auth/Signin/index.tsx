@@ -10,7 +10,7 @@ const Signin = ({navigation}: {navigation: NavigationProp<any>}) => {
   return (
     <View style={styles.container}>
       <Title title="Welcome back" />
-      <Input placeholder="Email" />
+      <Input placeholder="Email" keyboardType="email-address" />
       <Input placeholder="Password" secureTextEntry />
       <Button title="login" />
       <Text style={[styles.footerText]}>

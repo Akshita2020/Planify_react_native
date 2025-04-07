@@ -1,17 +1,23 @@
 import React from 'react';
 import styles from './styles';
-import {TextInput} from 'react-native';
+import {TextInput, KeyboardTypeOptions} from 'react-native';
 import colors from '../../constants/colors';
 
 interface InputProps {
   placeholder: string;
   secureTextEntry?: boolean;
+  keyboardType?: KeyboardTypeOptions;
 }
 
 const Input = ({...props}: InputProps) => {
-  return <TextInput placeholderTextColor={colors.midGrey} style={styles.input} {...props} />;
+  return (
+    <TextInput
+      placeholderTextColor={colors.midGrey}
+      keyboardType={props.keyboardType}
+      style={styles.input}
+      {...props}
+    />
+  );
 };
 
 export default React.memo(Input);
-
-
